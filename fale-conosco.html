@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SiteDoGlogleGlass</title>
+    <link rel="stylesheet" href="_css/estilo.css" />
+    <link rel="stylesheet" href="_css/form.css">
+</head>
+<script src="_javascript/funcoes.js"></script>
+<script>
+    function calc_total(){
+        var qtd = parseInt (document.getElementById('cqtd')).value;
+        tot=qtd *1500;
+        document.getElementById('ctot').value= tot;
+   }
+</script>
+<body>
+
+    <div id="interface">
+        <header id="cabecalho">
+            <hgroup>
+                <h1> Google Glass</h1>
+                <h2> A revolução do Google está chegando</h2>
+                <img id="icone" src="_imagens/contato.png" ;>
+
+                <nav id="menu">
+                    <h1>Menu Principal</h1>
+                    <ul type="disc">
+                        <li onmouseover="mudaFoto('_imagens/home.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a
+                                href="index.html">Home</a></li>
+                        <li onmouseover="mudaFoto('_imagens/especificacoes.png')"
+                            onmouseout="mudaFoto('_imagens/contato.png')"><a href="specs.html">Especificações</a></li>
+                        <li onmouseover="mudaFoto('_imagens/fotos.png')" onmouseout="mudaFoto('_imagens/contato.png')">
+                            <a href="fotos.html">Fotos</a></li>
+                        <li onmouseover="mudaFoto('_imagens/multimidia.png')"
+                            onmouseout="mudaFoto('_imagens/contato.png')"><a href="multimidia.html">Multimídia</a></li>
+                        <li onmouseover="mudaFoto('_imagens/contato.png')"
+                            onmouseout="mudaFoto('_imagens/contato.png')"><a href="fale-conosco.html">Fale conosco</a>
+                        </li>
+                    </ul>
+                </nav>
+        </header>
+        <section id="corpo-full">
+            <article id="noticia-principal">
+                <header id="cabecalho-artigo">
+                    <hgroup>
+                        <h3>Fale Conosco > Contatos</h3>
+                        <h1>Formulário de Contato</h1>
+                        <h2>por Diego Moreno</h2>
+                        <h3 class="direita">Atualizado em 21/outubro/2023</h3>
+                    </hgroup>
+                </header>
+
+                <form method="post" id="fcontato" action="mailto:diegoricmoreno1@gmail.com" oninput="calc_total();">
+
+                    <fieldset id="usuario">
+                        <legend>Identificação do Usuário</legend>
+                        <p><label form="cnome">Nome:<input type="text" nome="tnome" id="cnome" size="20" maxlength="30"
+                                    placeholder="Nome Completo"></label></p>
+                        <p><label form="cnome">Senha:<input type="password" name="tsenha" id="csenha" size="8"
+                                    maxlength="8" placeholder="Oito digitos"></label></p>
+                        <p><label form="cnome">E-mail:<input type="email" name="temail" id="cemail" size="20"
+                                    maxlength="40" placeholder="digite seu email"></label></p>
+                        <fieldset id="sexo">
+                            <legend>Sexo:</legend>
+                            <label form="cfem"><input type="radio" name="tsexo" id="cmasc" />Masculino</label></br>
+                            <label form="cfem"><input type="radio" name="tsexo" id="cfem" />Feminino</label>
+                        </fieldset>
+                        <p> Data de Nascimento:<label form="cdata"><input type="date" name="tdata"
+                                    id="cdata"></label></label></p>
+                    </fieldset>
+
+                    <fieldset id="endereco">
+                        <legend>Endereço do Usuário</legend>
+                        <p><label form="clogadouro">Logradouro:<input type="text" nome="tlogadouro" id="clogadouro"
+                                    size="30" maxlength="30" placeholder="Digite seu Endereço"></label></p>
+                        <p><label form="cnumero">Número:<input type="number" id="tnumero" id="cnumero" size="6"
+                                    maxlength="6" placeholder="Número"></label></p>
+                        <p><label form="cest">Estado:</label>
+                            <select>
+                                <optgroup label="sul">
+                                    <option>Rio Grande do Sul</option>
+                                    <option>Santa Catarina</option>
+                                    <option>Paraná</option>
+                                </optgroup>
+                                <optgroup label="regiao sudeste">
+                                    <option>São Paulo</option>
+                                    <option>Rio de Janeiro</option>
+                                    <option>Mato Grosso do Sul</option>
+                                    <option>Minas Gerais</option>
+                                    <option>Distrito Federal</option>
+                                    <option>Goiás</option>
+                                </optgroup>
+                                <optgroup label="regiao norte">
+                                    <option>Acre</option>
+                                    <option>Alagoas</option>
+                                    <option>Amapá</option>
+                                    <option>Amazonas</option>
+                                    <option>Ceará</option>                                   
+                                    <option>Bahia</option>
+                                    <option>Sergipe</option>
+                                </optgroup>
+                            </select>
+                        </p>
+                        <p><label form="ccid">Cidade:</label>
+                        <input type="text" nome="tccidade" id="cccid" size="20" maxlength="20" placeholder="Digite sua Cidade" list="cidadesSul"></p>
+                        <datalist id="cidadesSul">
+                           <option value="São Bento do Sul"></option>
+                           <option value="Joinville"></option>
+                           <option value="Florianopolis"></option>
+                           <option value="Porto Alegre"></option>
+                           <option value="Curitiba"></option>
+                        </datalist>
+                    </fieldset>
+
+                    <fieldset  id="mensagem"><legend>Mensagem do Usuário</legend>
+                        <p><label for="curg">Grau de Urgência:</label>
+                        Min<input type="range" name="turg" id="curg" min="0" max="15" step="2">Max</p> 
+                        <p><label for="cmsg">Mensagem:</label>
+                        <textarea name="tmsg" id="cmsg" cols="35" rows="5" placeholder="Deixe sua Mensagem"></textarea></p>                         
+                    </fieldset>
+                    
+                    <fieldset id="pedido"><legend>Quero um Google Glass</legend>
+                        <p><input type="checkbox" name="tped" checked/>                        
+                        <label for="cped">Gostaria de adquirir um Google Glass quando disponível</label> </p>
+                        <p><label for="ccor">Cor:</label> 
+                        <input type="color"name="tcor" id="ccor" value="#0000ff"></p>
+                        <p><label for="cqt">Quantidade:</label>
+                        <input type="number" name="tname" id="cname" min="0" max="5"></p>
+                        <p><label for="ctot">Preço Total: R$</label>
+                        <input type="text" name="ttot" id="ctot" placeholder="Total a Pagar" readonly></p>
+                    </fieldset>
+
+                    <input type="image" name="tenviar" src="_imagens/botao-enviar.png">
+
+                </form>
+            </article>
+        </section>
+
+        <footer id="rodape">
+            <p>Copyright &copy; 2023 - by Diego Moreno</p>
+            <p><a href="https://www.facebook.com/diego.moreno.940436" target="_blank"> facebook </a></p>
+        </footer>
+    </div>
+</body>
+
+</html>
